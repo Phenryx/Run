@@ -1,0 +1,6 @@
+{
+	"java":
+	{
+		"cmd": ["java", "-cp", "$file_path", "$file_name_blank"]
+	}
+}

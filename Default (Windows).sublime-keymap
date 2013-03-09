@@ -1,0 +1,4 @@
+[  
+    { "keys": ["f5"], "command": "run" },
+    { "keys": ["ctrl+shift+b"], "command": "run" } 
+] 

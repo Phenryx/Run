@@ -1,0 +1,15 @@
+[
+	{
+        "caption": "Tools",
+        "mnemonic": "T",
+        "id": "tools",
+        "children":
+        [
+            { "caption": "-", "id": "run" },
+            { "command": "run", "mnemonic": "r" },
+            { "caption": "-", "id": "macros" },
+            
+            { "caption": "-", "id": "end" }
+        ]
+    }
+]
