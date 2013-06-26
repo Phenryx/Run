@@ -1,7 +1,7 @@
 {
 	"java":
 	{
-		"cmd": ["java", "-classpath", "$file_path", "$file_name_blank"]
+		"cmd": ["java", "-cp", "$file_path", "$file_name_blank", "$stdin"]
 	},
 	"c++":
 	{

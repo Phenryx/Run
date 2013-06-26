@@ -12,5 +12,6 @@
 	"$project_path": "project_path",
 	"$project_name": "project_name",
 	"$project_extension": "project_extension",
-	"$project_base_name": "project_base_name"
+	"$project_base_name": "project_base_name",
+	"$stdin" : "stdin"
 }
