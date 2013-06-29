@@ -4,9 +4,9 @@
 		"cmd": ["java", "-cp", "$file_path", "$file_name_blank", "$stdin"]
 	},
 
-	"__c":
+	"c":
 	{
-		"cmd": []
+		"cmd": ["gcc", "$file_name", "-o", "$out_file_name"]
 	},
 
 	"c++":
