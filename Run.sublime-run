@@ -3,8 +3,39 @@
 	{
 		"cmd": ["java", "-cp", "$file_path", "$file_name_blank", "$stdin"]
 	},
+
+	"__c":
+	{
+		"cmd": []
+	},
+
 	"c++":
 	{
 		"cmd": ["g++", "$file_name", "-o", "$out_file_name"]
-	}
+	},
+
+	"__objective_c":
+	{
+		"cmd": []
+	},
+
+	"__python" :
+	{
+		"cmd": []
+	},
+
+	"__ruby":
+	{
+		"cmd": []
+	},
+
+	"__perl":
+	{
+		"cmd": []
+	},
+
+	"__lua":
+	{
+		"cmd": []
+	},
 }
