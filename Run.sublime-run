@@ -5,6 +5,6 @@
 	},
 	"c++":
 	{
-		"cmd": []
+		"cmd": ["g++", "$file_name", "-o", "$out_file_name"]
 	}
 }
