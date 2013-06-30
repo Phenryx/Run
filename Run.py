@@ -26,22 +26,50 @@ class RunCommand(sublime_plugin.TextCommand):
 
 	def arguments(self, infos):
 		load_args = infos.database[infos.syntax]
+
+		if infos.platform in load_args.keys():
+			load_args = load_args[infos.platform]
+
 		arguments = {}
 		arguments["shell"] = True
+
 		for command in load_args:
 			if isinstance(load_args[command], list):
-				lst_arguments = self.lst_arguments(infos, load_args[command])
+				cmd_args = load_args[command]
+
+				#lst_arguments = "['"
+				lst_arguments = []
+				for command in cmd_args:
+					if command in infos.format:
+						#command_eval = eval("infos.format[\""+command+"\"]")
+						command_eval = infos.format[command]
+						#lst_arguments += " " + eval("infos."+command_eval)
+						#lst_arguments += " " + infos.__dict__[command_eval]
+						lst_arguments.append(infos.__dict__[command_eval])
+						#continue
+					elif command[0:2] == "--":
+						#lst_arguments += "" + command[2:]
+						lst_arguments.append(lst_arguments.pop()+command[2:])
+					else:
+						#lst_arguments += " " + command
+						lst_arguments.append(command)
+
+				#lst_arguments = self.lst_arguments(infos, load_args[command])
 				arguments[command] = eval(lst_arguments)
-				continue
-			elif load_args[command] in infos.format:
-				arguments[command] = infos.format[command]
-				continue
-			arguments[command] = load_args[command]
+				#continue
+			else:
+				print "Error in " + infos.db_file + "\n" + infos.syntax + "'s syntax is irregular."
+			#elif load_args[command] in infos.format:
+			#	arguments[command] = infos.format[command]
+			#	continue
+			#arguments[command] = load_args[command]
+
 		return arguments
 
-	def lst_arguments(self, infos, load_args_sub):
+"""
+	def lst_arguments(self, infos, cmd_args):
 		lst_arguments = "['"
-		for command in load_args_sub:
+		for command in cmd_args:
 			if command in infos.format:
 				command_eval = eval("infos."+"format[\""+command+"\"]")
 				lst_arguments += " " + eval("infos."+command_eval)
@@ -49,3 +77,4 @@ class RunCommand(sublime_plugin.TextCommand):
 			lst_arguments += " " + command
 		lst_arguments += "']"
 		return lst_arguments
+"""
