@@ -6,12 +6,22 @@
 
 	"c":
 	{
-		"cmd": ["gcc", "$file_name", "-o", "$out_file_name"]
+		"cmd": ["$file_path", "$file_base_name" "-o", "$stdin"],
+
+		"windows":
+		{
+			"cmd": ["$file_name_blank", "--.exe", "-o", "$stdin"]
+		}
 	},
 
 	"c++":
 	{
-		"cmd": ["g++", "$file_name", "-o", "$out_file_name"]
+		"cmd": ["$file_path", "$file_base_name", "-o", "$stdin"],
+
+		"windows":
+		{
+			"cmd": ["$file_name_blank", "--.exe", "-o", "$stdin"]
+		}
 	},
 
 	"__objective_c":
@@ -39,3 +49,5 @@
 		"cmd": []
 	},
 }
+
+subl["c"]
