@@ -22,6 +22,7 @@ class Infos(object):
 			self.file_path = os.path.split(view.file_name())[0].replace(" ", "\\ ")
 		else:
 			self.file_path = "\""+os.path.split(view.file_name())[0]+"\""
+
 		self.file_name = os.path.split(view.file_name())[-1]
 		self.file_extension = self.file_name.split(".")[-1]
 		self.file_base_name = os.path.basename(self.file_path)
