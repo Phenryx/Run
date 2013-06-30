@@ -6,7 +6,7 @@
 
 	"c":
 	{
-		"cmd": ["$file_path", "$file_base_name" "-o", "$stdin"],
+		"cmd": ["$file_path", "$file_base_name", "-o", "$stdin"],
 
 		"windows":
 		{
