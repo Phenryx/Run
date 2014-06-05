@@ -1,6 +1,6 @@
 import sys
 #try:
-from tkinter import *
+#from tkinter import *
 #except:
 #	from Tkinter import *
 
@@ -46,5 +46,5 @@ class Stdin(object):
 		print(self.contents.get())
 
 
-st = Stdin()
-st.getString()
+#st = Stdin()
+#st.getString()

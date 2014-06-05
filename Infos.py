@@ -1,12 +1,19 @@
 import sublime, sublime_plugin
 import os, json
-from subprocess import Popen, PIPE
+#from subprocess import Popen, PIPE
 
 class Infos(object):
 	def __init__(self,view):
-		PyStdinFile = sublime.packages_path()+"/Run/Stdin.py"
-		proc = Popen(["python", PyStdinFile], stdout=PIPE)
-		self.stdin = proc.communicate()[0][:-1]
+		self.stdin = ""
+		view.window().show_input_panel("Input for java [STDIN]:", '', self.on_done, None, None)
+		"""
+		if True:
+			PyStdinFile = sublime.packages_path()+"/Run/Stdin.py"
+			proc = Popen(["python", PyStdinFile], stdout=PIPE)
+			self.stdin = proc.communicate()[0][:-1]
+		else:
+			self.stdin = ""
+		"""
 
 		db_file = os.path.join(sublime.packages_path(), "Run", "Run.sublime-run")
 		format_file = os.path.join(sublime.packages_path(), "Run", "Run.format-name")
@@ -35,3 +42,7 @@ class Infos(object):
 		self.project_base_name = ""
 		self.syntax = view.settings().get("syntax").split("/")[1].lower()
 		self.platform = sublime.platform()
+
+	def on_done(self, user_input):
+		self.stdin = user_input
+		sublime.status_message("User said: " + user_input)

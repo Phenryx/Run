@@ -1,5 +1,5 @@
 '''
-Plugin for Sublime Text 2
+Plugin for Sublime Text 3
 
 Author: Benedetto "phenryx" Abbenanti
 '''
@@ -7,17 +7,17 @@ Author: Benedetto "phenryx" Abbenanti
 import sublime, sublime_plugin
 import os, sys
 import json
-import Infos
+import Run.Infos
 
 class RunCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		print "--- Run - Sublime Text 2 Plugin"
+		print("--- Run - Sublime Text 2 Plugin")
 
 		current_view = self.view
 		infos = Infos.Infos(current_view)
 		self.run_command(infos)
 
-		print "With a stdin for the plugin: " + infos.stdin
+		print("With a stdin for the plugin: " + infos.stdin)
 
 	def run_command(self, infos):
 		syntax = infos.syntax
@@ -26,7 +26,7 @@ class RunCommand(sublime_plugin.TextCommand):
 			return None
 
 		arguments = self.arguments(infos)
-		print arguments
+		print(arguments)
 		self.view.window().run_command("exec", arguments)
 
 	def arguments(self, infos):
@@ -58,6 +58,6 @@ class RunCommand(sublime_plugin.TextCommand):
 				arguments[cmd] = [lst_arguments]
 
 			else:
-				print "Error in " + infos.db_file + "\n" + infos.syntax + "'s syntax is irregular."
+				print("Error in " + infos.db_file + "\n" + infos.syntax + "'s syntax is irregular.")
 
 		return arguments
