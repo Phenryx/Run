@@ -14,7 +14,7 @@ class RunCommand(sublime_plugin.TextCommand):
 		print("--- Run - Sublime Text 2 Plugin")
 
 		current_view = self.view
-		infos = Infos.Infos(current_view)
+		infos = Run.Infos.Infos(current_view)
 		self.run_command(infos)
 
 		print("With a stdin for the plugin: " + infos.stdin)
